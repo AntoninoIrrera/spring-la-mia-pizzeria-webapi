@@ -1,5 +1,7 @@
 package com.example.demo.api.dto;
 
+import java.util.List;
+
 import org.springframework.validation.BindingResult;
 
 import com.example.demo.pojo.Pizza;
@@ -34,4 +36,19 @@ public class PizzaResponseDto {
 	public void setBindingResult(BindingResult bindingResult) {
 		this.bindingResult = bindingResult;
 	}
+	
+	 private List<String> errors;
+
+	    public PizzaResponseDto(List<String> errors) {
+	        this.errors = errors;
+	    }
+
+	    public List<String> getErrors() {
+	        return errors;
+	    }
+
+	    public void setErrors(List<String> errors) {
+	        this.errors = errors;
+	    }
+	
 }
