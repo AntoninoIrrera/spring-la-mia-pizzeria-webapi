@@ -10,18 +10,20 @@ export default {
     },
     data() {
         return {
-            apiURL: 'http://127.0.0.1:8080/api/v1/pizza',
+            apiURL: 'http://127.0.0.1:8080/api/v1/pizza/filtro',
             pizze: [],
+            nome : ''
         }
     },
     methods: {
         getPizza() {
             axios.get(this.apiURL, {
                 params: {
-
+                    nome : this.nome
                 }
             })
                 .then((response) => {
+                
                     console.log(response.data);
                     this.pizze = response.data;
                     
@@ -45,6 +47,12 @@ export default {
             <div class="row">
                 <div class="col-12">
                     <router-link to="createPizza" class="btn btn-primary">createPizza</router-link>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <input type="text" v-model="nome" id="nome" placeholder="cerca" @keypress="getPizza">
                 </div>
             </div>
 
