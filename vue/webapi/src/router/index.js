@@ -4,6 +4,7 @@ import PizzaApp from '../views/PizzaApp.vue'
 import HomeApp from '../views/HomeApp.vue'
 import CreatePizza from '../views/CreatePizza.vue'
 import PizzaShow from '../views/PizzaShow.vue'
+import EditPizza from '../views/EditPizza.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,11 @@ const router = createRouter({
       path: '/createPizza',
       name: 'createPizza',
       component: CreatePizza
+    },
+    {
+      path: '/:id',
+      name: 'editPizza',
+      component: EditPizza
     },
     {
       path: '/:id',

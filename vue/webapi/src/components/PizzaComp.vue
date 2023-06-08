@@ -46,6 +46,7 @@ export default {
                 <p class="card-text">{{ ingredienti }}</p>
                 <router-link :to="{ name: 'pizzaShow', params: { id: id } }" class="btn btn-success me-2"
                    v-if="show != true">show</router-link>
+                <router-link :to="{ name: 'editPizza', params: { id: id } }" v-if="show != true" class="btn btn-warning me-2">Modifica</router-link>
                 <button v-if="show != true" class="btn btn-danger" @click="deletePizza(id)">Elimina</button>
             </div>
         </div>
