@@ -9,7 +9,8 @@ export default {
         prezzo: Number,
         ingredienti: Object,
         offertaSpeciale: Object,
-        id: Number
+        id: Number,
+        show: Boolean
     },
     data() {
         return {
@@ -43,9 +44,9 @@ export default {
                     <span v-for="offertaSpeciale in offertaSpeciale"> #{{ offertaSpeciale.titolo }} #{{ offertaSpeciale.percSconto }} <br> #{{ offertaSpeciale.dataDiInizio }} #{{ offertaSpeciale.dataDiFine }} </span>
                 </p>
                 <p class="card-text">{{ ingredienti }}</p>
-                <!-- <router-link :to="{ name: 'project', params: { id: id } }" class="nav-link btn btn-primary"
-                    v-if="show != true">show</router-link> -->
-                <button class="btn btn-danger" @click="deletePizza(id)">Elimina</button>
+                <router-link :to="{ name: 'pizzaShow', params: { id: id } }" class="btn btn-success me-2"
+                   v-if="show != true">show</router-link>
+                <button v-if="show != true" class="btn btn-danger" @click="deletePizza(id)">Elimina</button>
             </div>
         </div>
     </div>

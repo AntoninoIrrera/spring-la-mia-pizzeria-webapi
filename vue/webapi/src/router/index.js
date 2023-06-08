@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import PizzaApp from '../views/PizzaApp.vue'
 import HomeApp from '../views/HomeApp.vue'
 import CreatePizza from '../views/CreatePizza.vue'
+import PizzaShow from '../views/PizzaShow.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,12 @@ const router = createRouter({
       name: 'createPizza',
       component: CreatePizza
     },
+    {
+      path: '/:id',
+      name: 'pizzaShow',
+      component: PizzaShow
+    }
+
     // {
     //   path: '/about',
     //   name: 'about',
