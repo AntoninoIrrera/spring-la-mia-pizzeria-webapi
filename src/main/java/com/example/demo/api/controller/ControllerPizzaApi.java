@@ -73,7 +73,7 @@ public class ControllerPizzaApi {
 		return new ResponseEntity<>(pizza, HttpStatus.OK);
 	}
 	
-	@PostMapping("/pizza/filtro")
+	@GetMapping("/pizza/filtro")
 	public ResponseEntity<List<Pizza>> filtroPizza(@RequestParam(required = false) String nome){
 		
 		List<Pizza> pizze = pizzaService.findByNome(nome);
