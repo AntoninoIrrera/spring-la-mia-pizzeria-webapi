@@ -2,8 +2,7 @@ package com.example.demo.pojo;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +17,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class OffertaSpeciale {
 
 	
@@ -28,7 +27,7 @@ public class OffertaSpeciale {
 	
 	@ManyToOne
 	@JoinColumn(nullable = false)
-//	@JsonBackReference
+	@JsonBackReference
 	private Pizza pizza;
 	
 	@NotNull(message = "la data di inizio non puo essere vuoto")

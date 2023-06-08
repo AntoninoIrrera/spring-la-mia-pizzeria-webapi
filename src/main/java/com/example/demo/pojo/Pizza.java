@@ -2,8 +2,7 @@ package com.example.demo.pojo;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,7 +17,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Pizza {
 
 	@Id
@@ -26,7 +25,7 @@ public class Pizza {
 	private int id;
 	
 	@OneToMany(mappedBy = "pizza")
-//	@JsonManagedReference
+	@JsonManagedReference
 	private List<OffertaSpeciale> offertaSpeciales;
 	
 	@NotBlank(message = "il nome non può essere vuoto")

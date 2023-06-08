@@ -3,8 +3,7 @@ package com.example.demo.pojo;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +14,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Ingredienti {
 	
 	@Id
@@ -27,7 +26,7 @@ public class Ingredienti {
 	private String nome;
 
 	@ManyToMany(mappedBy = "ingredienti")
-//	@JsonBackReference
+	@JsonBackReference
 	private List<Pizza> pizze;
 	
 	public List<Pizza> getPizze() {
